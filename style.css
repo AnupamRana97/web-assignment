@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgb(9, 156, 204);
+}
+
+.container{
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.container header{
+    font-size: 1.5rem;
+    color: #000;
+    font-weight: 550;
+    text-align: center;
+}
+
+.container .form{
+    margin-top: 30px;
+}
+.form .input-box{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-box label{
+    color: #000;
+}
+
+.required::after{
+    content: " *";
+    color: red;
+    font-size: 20px;
+}
+
+.form :where(.input-box input, .select-box){
+    position: relative;
+    height: 40px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: slategray;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0 15px;
+}
+
+.form .input-box i{
+    visibility: hidden;
+}
+
+.form .success i.fa-check-circle{
+    color: rgb(8, 180, 8);
+    visibility: visible;
+}
+
+.form .error i.fa-exclamation-circle{
+    color: rgb(210, 1, 1);
+    visibility: visible;
+}
+
+.form .input-box small{
+    visibility: hidden;
+    bottom: 0;
+    left: 0;
+}
+
+.form .error small{
+    color: rgb(210, 1, 1);
+    visibility: visible;
+}
+
+.form .column{
+    display: flex;
+    column-gap: 10px;
+}
+
+.form .gender-box{
+    margin-top: 20px;
+}
+
+.gender-box h3{
+    color: #000;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.form :where(.gender-option, .gender){
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form .gender{
+    column-gap: 5px;
+}
+
+.form :where(.gender input, .gender label){
+    cursor: pointer;
+}
+
+.gender label{
+    color: rgb(71, 77, 83);
+}
+
+.select-box select{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: slategray;
+    font-size: 1rem;
+}
+
+.form button{
+    height: 40px;
+    width: 100px;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 400;
+    background-color: rgb(9, 156, 204);
+}

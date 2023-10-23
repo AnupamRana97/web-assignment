@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurveyForm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="container">
+        <header>Customer Survey Form</header>
+        <form name="myform" action="#" class="form" id="surveyForm">
+            <div class="column">
+                <div class="input-box">
+                    <label class="required">First Name</label>
+                    <input type="text" id="firstName" placeholder="Enter your first name" required 
+                    oninvalid = "this.setCustomValidity('First name cannot be blank')"
+                    oninput="this.setCustomValidity('')">
+                </div>
+                <div class="input-box">
+                    <label>Last Name</label>
+                    <input type="text" id="lastName" placeholder="Enter your last name">
+                </div>
+            </div>
+            <div class="input-box">
+                <label class="required"> Date of Birth</label>
+                <input type="date" id="dob" required 
+                oninvalid = "this.setCustomValidity('Please enter your DoB')"
+                oninput="this.setCustomValidity('')">
+            </div>
+            <div class="gender-box">
+                <h3 class="required">Gender</h3>
+                <div class="gender-option">
+                    <div class="gender">
+                        <input type="radio" id="check-male" name="gender" required>
+                        <label for="check-male">Male</label>
+                    </div>
+                    <div class="gender">
+                        <input type="radio" id="check-female" name="gender" required>
+                        <label for="check-female">Female</label>
+                    </div>
+                    <div class="gender">
+                        <input type="radio" id="check-others" name="gender" required>
+                        <label for="check-others">Other</label>
+                    </div>
+                </div>
+            </div>
+            <div class="input-box country">
+                <label class="required">Country</label>
+                <div class="column">
+                    <div class="select-box">
+                        <select name="country" id="countrySelect" required
+                        oninvalid = "this.setCustomValidity('Please choose your country from the list')"
+                        oninput="this.setCustomValidity('')">
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="argentina">Argentina</option>
+                            <option value="brazil">Brazil</option>
+                            <option value="china">China</option>
+                            <option value="england">England</option>
+                            <option value="france">France</option>
+                            <option value="india">India</option>
+                            <option value="japan">Japan</option>
+                            <option value="southkorea">South Korea</option>
+                            <option value="usa">USA</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="input-box">
+                <label class="required">Profession</label>
+                <input type="text" id="profession" placeholder="Enter your profession" required 
+                oninvalid = "this.setCustomValidity('Profession cannot be empty')"
+                oninput="this.setCustomValidity('')">
+            </div>
+            <div class="input-box">
+                <label class="required">Email</label>
+                <input type="text" id="email" name="email" placeholder="Enter your email" required 
+                oninvalid = "this.setCustomValidity('Please enter a valid email')"
+                oninput="this.setCustomValidity('')">
+            </div>
+            <div class="input-box">
+                <label class="required">Mobile Number</label>
+                <input type="text" id="mobile" name="mobile" placeholder="Enter your mobile number" required 
+                oninvalid = "this.setCustomValidity('Please enter a valid Mobile Number')"
+                oninput="this.setCustomValidity('')">
+            </div>
+
+            <button type="submit" id="submitButton">Submit</button>
+            <button type="reset" id="resetButton">Reset</button>
+        </form>
+    </section>
+
+    <script>
+        function validateEmail() {
+            var emailInput = document.getElementById("email");
+            var email = emailInput.value.trim();
+            var emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+
+            if (!email.match(emailRegex)) {
+                emailInput.setCustomValidity('Please enter a valid email');
+            } else {
+                emailInput.setCustomValidity('');
+            }
+        }
+    
+        document.getElementById("email").addEventListener("input", validateEmail);
+
+
+
+        function validateMobile() {
+        var mobileInput = document.getElementById("mobile");
+        var mobileNumber = mobileInput.value.trim();
+        var mobileRegex = /^[0-9]{10}$/;
+
+        if (!mobileNumber.match(mobileRegex)) {
+            mobileInput.setCustomValidity('Please enter a valid 10-digit mobile number');
+        } else {
+            mobileInput.setCustomValidity('');
+        }
+    }
+
+    document.getElementById("mobile").addEventListener("input", validateMobile);
+
+    </script>
+</body>
+</html>
